@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>my_tasks</title>
+  <meta name="author" content="Joyce Wen">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="/stylesheets/all.css">
+</head>
+
+<body>
+  <div class="contain wrapper">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-primary p-0">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav container d-flex justify-content-around">
+          <li class="nav-item active">
+            <a class="nav-link py-4 border-white border-bottom" href="my_tasks.html">My Tasks
+              <!-- <span class="sr-only">(current)</span> -->
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link py-4" href="#">In Progress</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link py-4" href="#">Completed</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- main start -->
+    <div class="contain main">
+      <div class="container">
+        <!-- add input start -->
+        <div class="input-group input-group-lg mt-4">
+          <input type="text" class="form-control js-addNewList-input" placeholder="+ Add Task" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+        </div>
+        <!-- add input end -->
+        <!-- edit form start -->
+        <div class="card bg-light mb-3 mt-4 js-editForm" style="display: none">
+          <div class="card-header bg-transparent">
+            <div class="input-group d-flex align-items-center">
+              <div class="form-check mr-auto">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                  Type Something Here…
+                </label>
+              </div>
+              <div>
+                <button class="btn btn-link text-dark" type="button">
+                  <i class="fa-lg far fa-star"></i>
+                </button>
+                <button class="btn btn-link text-warning" type="button">
+                  <i class="fa-lg fas fa-star"></i>
+                </button>
+                <button class="btn btn-link" type="button">
+                  <i class="fa-lg fas fa-pencil-alt"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="card-body text-dark px-5 py-4">
+            <div class="form-group mb-4">
+              <div class="h5">
+                <i class="mr-2 fa-sm far fa-calendar-alt"></i>Deadline
+              </div>
+              <div class="row">
+                <div class="col-5">
+                  <input type="date" class="form-control" placeholder="First name">
+                </div>
+                <div class="col-5">
+                  <input type="time" class="form-control" placeholder="Last name">
+                </div>
+              </div>
+            </div>
+            <div class="form-group mb-4">
+              <div class="h5">
+                <i class="mr-2 fa-sm far fa-file"></i>File
+              </div>
+              <div class="d-flex align-items-center">
+                <div>
+                  <div>20180514.zip</div>
+                  <div class="text-gray_500">uploaded yesterday</div>
+                </div>
+                <div>
+                  <label for="file-upload" class="mb-0 ml-4">
+                    <i class="fa-2x fas fa-plus-square text-primary"></i>
+                  </label>
+                  <input id="file-upload" type="file" hidden>
+                </div>
+              </div>
+            </div>
+            <div class="form-group mb-0">
+              <div class="h5">
+                <i class="mr-2 fa-sm far fa-comment-dots"></i>Comment
+              </div>
+              <textarea class="form-control" rows="3"></textarea>
+            </div>
+          </div>
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-lg btn-block text-danger bg-white rounded-0 rounded-bottom js-editForm-cancelBtn">
+              <i class="mr-2 fa-sm fas fa-times"></i>Cancel</button>
+            <button type="button" class="btn btn-lg btn-block btn-primary mt-0 rounded-0 rounded-bottom">
+              <i class="mr-2 fa-sm fas fa-plus"></i>Save</button>
+          </div>
+        </div>
+        <!-- edit form end -->
+        <!-- List with handle start-->
+        <div id="listWithHandle" class="list-group mt-4">
+
+          <div class="list-group-item my-1 rounded">
+            <span class="glyphicon js-glyphicon-move text-muted">
+              <i class="fas fa-ellipsis-v"></i>
+            </span>
+            <div class="pl-3">
+              <div class="input-group d-flex align-items-center">
+                <div class="form-check mr-auto">
+                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" checked>
+                  <label class="form-check-label" for="defaultCheck2">
+                    Type Something Here…
+                  </label>
+                </div>
+                <div>
+                  <button class="btn btn-link text-dark" type="button">
+                    <i class="fa-lg far fa-star"></i>
+                  </button>
+                  <button class="btn btn-link text-warning" type="button">
+                    <i class="fa-lg fas fa-star"></i>
+                  </button>
+<button class="btn btn-link text-dark" type="button">
+                    <i class="fa-lg fas fa-pencil-alt"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="d-flex text-muted">
+                <div class="mr-3">
+                  <i class="mr-2 fa-sm far fa-calendar-alt"></i>2018/5/14
+                </div>
+                <div class="mr-3">
+                  <i class="fa-sm far fa-file"></i>
+                </div>
+                <div>
+                  <i class="fa-sm far fa-comment-dots"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="list-group-item my-1 rounded">
+            <span class="glyphicon js-glyphicon-move text-muted">
+              <i class="fas fa-ellipsis-v"></i>
+            </span>
+            <div class="pl-3">
+              <div class="input-group d-flex align-items-center">
+                <div class="form-check mr-auto">
+                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck3">
+                  <label class="form-check-label" for="defaultCheck3">
+                    Type Something Here…
+                  </label>
+                </div>
+                <div>
+                  <button class="btn btn-link text-dark" type="button">
+                    <i class="fa-lg far fa-star"></i>
+                  </button>
+                  <button class="btn btn-link text-warning" type="button">
+                    <i class="fa-lg fas fa-star"></i>
+                  </button>
+<button class="btn btn-link text-dark" type="button">
+                    <i class="fa-lg fas fa-pencil-alt"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="d-flex text-muted">
+                <div class="mr-3">
+                  <i class="mr-2 fa-sm far fa-calendar-alt"></i>2018/5/14
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="list-group-item my-1 rounded">
+            <span class="glyphicon js-glyphicon-move text-muted">
+              <i class="fas fa-ellipsis-v"></i>
+            </span>
+            <div class="pl-3">
+              <div class="input-group d-flex align-items-center">
+                <div class="form-check mr-auto">
+                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck4">
+                  <label class="form-check-label" for="defaultCheck4">
+                    Type Something Here…
+                  </label>
+                </div>
+                <div>
+                  <button class="btn btn-link text-dark" type="button">
+                    <i class="fa-lg far fa-star"></i>
+                  </button>
+                  <button class="btn btn-link text-warning" type="button">
+                    <i class="fa-lg fas fa-star"></i>
+                  </button>
+<button class="btn btn-link text-dark" type="button">
+                    <i class="fa-lg fas fa-pencil-alt"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="d-flex text-muted">
+                <div class="mr-3">
+                  <i class="mr-2 fa-sm far fa-calendar-alt"></i>2018/5/14
+                </div>
+                <div class="mr-3">
+                  <i class="fa-sm far fa-file"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="list-group-item my-1 rounded">
+            <span class="glyphicon js-glyphicon-move text-muted">
+              <i class="fas fa-ellipsis-v"></i>
+            </span>
+            <div class="pl-3">
+              <div class="input-group d-flex align-items-center">
+                <div class="form-check mr-auto">
+                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck5">
+                  <label class="form-check-label" for="defaultCheck5">
+                    Type Something Here…
+                  </label>
+                </div>
+                <div>
+                  <button class="btn btn-link text-dark" type="button">
+                    <i class="fa-lg far fa-star"></i>
+                  </button>
+                  <button class="btn btn-link text-warning" type="button">
+                    <i class="fa-lg fas fa-star"></i>
+                  </button>
+<button class="btn btn-link text-dark" type="button">
+                    <i class="fa-lg fas fa-pencil-alt"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- List with handle end-->
+        <div class="my-3">
+          <p class="text-gray_500 font-italic">4 tasks left</p>
+        </div>
+
+      </div>
+    </div>
+    <!-- main end -->
+  </div>
+
+  <script src="/javascripts/vendor.js"></script>
+  <!-- Latest Sortable -->
+  <script src="http://rubaxa.github.io/Sortable/Sortable.js"></script>
+  <script>
+    // List with handle
+    Sortable.create(listWithHandle, {
+      handle: '.js-glyphicon-move',
+      animation: 150
+    });
+  </script>
+  <script>
+    $(document).ready(function () {
+      //hit add item
+      $(".js-addNewList-input").focus(function (e) {
+        e.preventDefault();
+        $(".js-editForm").show();
+        $(this).hide();
+      });
+      //hit cancel btn in edit form 
+      $(".js-editForm-cancelBtn").click(function (e) {
+        e.preventDefault();
+        $(".js-editForm").hide();
+        $(".js-addNewList-input").show();
+      });
+      //
+ $("input:checked").next("label").css("text-decoration", "line-through").addClass("text-gray_500");
+    });
+  </script>
+</body>
+
+</html>
